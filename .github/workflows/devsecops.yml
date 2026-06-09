@@ -7,10 +7,12 @@ on:
 jobs:
     sast-codeql:
         runs-on: ubuntu-latest
+        permissions:
+            actions: read
+            contents: read
+            security-events: write            
         steps:
         - uses: actions/checkout@v6
-        - name: listar archivos
-          run: ls
         - name: Initialize CodeQL
           uses: github/codeql-action/init@v4
           with:
