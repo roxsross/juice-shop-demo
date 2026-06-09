@@ -1,9 +1,7 @@
 name: "devsecops tools"
-
 on: 
     push: 
         branches: [develop]
-
 jobs:
     sast-codeql:
         runs-on: ubuntu-latest
@@ -45,7 +43,7 @@ jobs:
                 --config=p/expressjs \
                 --sarif \
                 --output=/src/semgrep-results.sarif
-                
+
         - name: Upload Semgrep results to GitHub Security
           uses: github/codeql-action/upload-sarif@v4
           if: always()
